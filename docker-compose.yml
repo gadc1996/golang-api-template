@@ -1,6 +1,12 @@
-version: "1"
+version: "1.0"
 services:
   server:
-    build: .
+    build:
+      context: .
+      # Correct the path to your Dockerfile
+      dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - 8080:8080
+    # Important to bind/mount your codebase dir to /app dir for live reload
+    volumes:
+      - ./:/app

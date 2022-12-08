@@ -1,17 +1,10 @@
-# syntax=docker/dockerfile:1
-
-FROM golang:1.20rc1-alpine3.17
+FROM golang:1.19-alpine
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
+RUN go install github.com/cosmtrek/air@latest
+
+COPY . .
 RUN go mod download
 
-COPY *.go ./
-
-RUN go build -o /api-template
-
-EXPOSE 8080
-
-CMD [ "/api-template" ]
+CMD ["air", "-c", ".air.toml"]
