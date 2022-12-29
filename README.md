@@ -1,7 +1,6 @@
 # api-template
 Template for api projects
 
-
 ## Dependencies
 - Docker
 - Docker-compose
