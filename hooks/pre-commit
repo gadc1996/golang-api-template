@@ -1,0 +1,3 @@
+#!/bin/sh
+# Run testsuite before commiting changes
+make test

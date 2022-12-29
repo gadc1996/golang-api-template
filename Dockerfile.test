@@ -1,0 +1,6 @@
+FROM golang:1.19 as BUILD
+
+WORKDIR testdir
+COPY . .
+
+ENTRYPOINT ["go", "test", "-v", "./router", "-coverprofile", "cover.out"]
