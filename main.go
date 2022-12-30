@@ -4,5 +4,5 @@ import router "gadc1996/router"
 
 func main() {
 	router := router.SetupRouter()
-	router.Run()
+	router.Run(":5000")
 }
