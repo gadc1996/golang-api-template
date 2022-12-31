@@ -4,9 +4,9 @@ services:
     build:
       context: .
       # Correct the path to your Dockerfile
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/Dockerfile.dev
     ports:
-      - 80:5000
+      - 5000:5000
     # Important to bind/mount your codebase dir to /app dir for live reload
     volumes:
       - ./:/app
