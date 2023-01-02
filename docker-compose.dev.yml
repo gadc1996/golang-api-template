@@ -3,10 +3,32 @@ services:
   server:
     build:
       context: .
-      # Correct the path to your Dockerfile
       dockerfile: docker/Dockerfile.dev
     ports:
       - 5000:5000
-    # Important to bind/mount your codebase dir to /app dir for live reload
     volumes:
       - ./:/app
+    networks:
+      - fullstack
+    env_file:
+      - .env
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "${DB_NAME}"
+      MYSQL_USER: "${DB_USER}"
+      MYSQL_PASSWORD: "${DB_PASSWORD}"
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - fullstack
+volumes:
+  db:
+networks:
+ fullstack:
+    driver: bridge

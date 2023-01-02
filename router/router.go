@@ -1,11 +1,13 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"controllers"
+
+	"github.com/gin-gonic/gin"
+)
 
 func SetupRouter() *gin.Engine {
 	router := gin.Default()
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{})
-	})
+	router.GET("/", new(controllers.LoginController).Handle)
 	return router
 }

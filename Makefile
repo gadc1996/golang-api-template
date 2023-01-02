@@ -6,7 +6,7 @@ test:
 dev:
 	make clean
 	docker-compose --file docker-compose.dev.yml build 
-	docker-compose --file docker-compose.dev.yml up -d
+	docker-compose --file docker-compose.dev.yml up
 clean:
 	docker-compose down
 architecture:
