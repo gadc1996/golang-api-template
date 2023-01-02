@@ -1,6 +1,6 @@
 make install:
 	cp .env.example .env
-	ln -s -f $(pwd)/hooks/pre-commit $(pwd)/.git/hooks/pre-commit 
+	ln -s -f ${PWD}/hooks/pre-commit ${PWD}/.git/hooks/pre-commit 
 test:
 	docker build -q -t tests -f Dockerfile.test .  && docker run tests
 dev:
