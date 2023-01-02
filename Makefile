@@ -4,7 +4,9 @@ install:
 test:
 	docker build -q -t tests -f docker/Dockerfile.test .  && docker run tests
 dev:
-	docker-compose up --file docker-compose.dev.yml -d && ${BROWSER} http://localhost:8080
+	make clean
+	docker-compose --file docker-compose.dev.yml build 
+	docker-compose --file docker-compose.dev.yml up -d
 clean:
 	docker-compose down
 architecture:
